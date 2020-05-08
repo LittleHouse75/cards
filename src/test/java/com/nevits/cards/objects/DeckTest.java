@@ -55,6 +55,18 @@ public class DeckTest {
     }
 
     @Test
+    public void thirteenCardsOfEachSuit() throws EmptyDeckException {
+        List<Card> cards = convertDeckToList(deck);
+        for(Suit suit : Suit.values()) {
+            int counter = 0;
+            for(Card card : cards) {
+                if(card.getSuit() == suit) counter++;
+            }
+            assertEquals(13,counter);
+        }
+    }
+
+    @Test
     public void dealingCardReducesDeckSize() throws EmptyDeckException {
         Card dealtCard = deck.deal();
         assertEquals(51,deck.size());

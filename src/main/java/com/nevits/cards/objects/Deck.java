@@ -14,7 +14,7 @@ public class Deck {
 
     private static final Logger LOGGER = Logger.getLogger(Deck.class.getName());
     private static final SecureRandom RANDOM = new SecureRandom();
-    private List<Card> cards;
+    private List<Card> cards = new ArrayList<>();
 
     public Deck() {
         initialize52CardDeck();

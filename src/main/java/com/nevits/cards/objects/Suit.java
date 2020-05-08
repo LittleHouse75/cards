@@ -18,7 +18,8 @@ public enum Suit {
         this.color = color;
     }
 
-    public String toUnicode() {
+    @Override
+    public String toString() {
         return unicodeCharacter;
     }
 

@@ -12,25 +12,25 @@ public class SuitTest {
 
     @Test
     public void test_HEARTS() {
-        assertEquals("\u2661",HEARTS.toUnicode());
+        assertEquals("\u2661",HEARTS.toString());
         assertEquals(RED,HEARTS.color());
     }
 
     @Test
     public void test_CLUBS() {
-        assertEquals("\u2667",CLUBS.toUnicode());
+        assertEquals("\u2667",CLUBS.toString());
         assertEquals(BLACK,CLUBS.color());
     }
 
     @Test
     public void test_DIAMONDS() {
-        assertEquals("\u2662",DIAMONDS.toUnicode());
+        assertEquals("\u2662",DIAMONDS.toString());
         assertEquals(RED,DIAMONDS.color());
     }
 
     @Test
     public void test_SPADES() {
-        assertEquals("\u2664",SPADES.toUnicode());
+        assertEquals("\u2664",SPADES.toString());
         assertEquals(BLACK,SPADES.color());
     }
 

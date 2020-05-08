@@ -34,7 +34,7 @@ public class Card {
 
     @Override
     public String toString() {
-        return value.toString() + suit.toUnicode();
+        return value.toString() + suit.toString();
     }
 
     @Override
