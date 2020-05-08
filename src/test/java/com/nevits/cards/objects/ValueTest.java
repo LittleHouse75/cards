@@ -9,67 +9,67 @@ public class ValueTest {
 
     @Test
     public void test_ACE() {
-        assertEquals("Ace",ACE.toString());
+        assertEquals("A",ACE.toString());
     }
 
     @Test
     public void test_TWO() {
-        assertEquals("Two",TWO.toString());
+        assertEquals("2",TWO.toString());
     }
 
     @Test
     public void test_THREE() {
-        assertEquals("Three",THREE.toString());
+        assertEquals("3",THREE.toString());
     }
 
     @Test
     public void test_FOUR() {
-        assertEquals("Four",FOUR.toString());
+        assertEquals("4",FOUR.toString());
     }
 
     @Test
     public void test_FIVE() {
-        assertEquals("Five",FIVE.toString());
+        assertEquals("5",FIVE.toString());
     }
 
     @Test
     public void test_SIX() {
-        assertEquals("Six",SIX.toString());
+        assertEquals("6",SIX.toString());
     }
 
     @Test
     public void test_SEVEN() {
-        assertEquals("Seven",SEVEN.toString());
+        assertEquals("7",SEVEN.toString());
     }
 
     @Test
     public void test_EIGHT() {
-        assertEquals("Eight",EIGHT.toString());
+        assertEquals("8",EIGHT.toString());
     }
 
     @Test
     public void test_NINE() {
-        assertEquals("Nine",NINE.toString());
+        assertEquals("9",NINE.toString());
     }
 
     @Test
     public void test_TEN() {
-        assertEquals("Ten",TEN.toString());
+        assertEquals("10",TEN.toString());
     }
 
     @Test
     public void test_JACK() {
-        assertEquals("Jack",JACK.toString());
+        assertEquals("J",JACK.toString());
     }
 
     @Test
     public void test_QUEEN() {
-        assertEquals("Queen",QUEEN.toString());
+        assertEquals("Q",QUEEN.toString());
     }
 
     @Test
     public void test_KING() {
-        assertEquals("King",KING.toString());
+        assertEquals("K",KING.toString());
     }
 
 }

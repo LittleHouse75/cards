@@ -27,7 +27,8 @@ public class DeckTest {
     @Test
     public void cardsAreAllUnique() throws EmptyDeckException {
         List<Card> discardPile = new ArrayList<>();
-        for(int i = 0; i < deck.size(); i++) {
+        int deckSize = deck.size();
+        for(int i = 0; i < deckSize; i++) {
             Card card = deck.deal();
             assert(!discardPile.contains(card));
             discardPile.add(card);
@@ -36,7 +37,7 @@ public class DeckTest {
 
     @Test
     public void cardsAreNotNull() throws EmptyDeckException {
-        for(int i = 0; i < deck.size(); i++) {
+        for(int i = 0; i < 52; i++) {
             assertNotNull(deck.deal());
         }
     }
@@ -44,10 +45,8 @@ public class DeckTest {
     @Test
     public void dealtCardIsUnique() throws EmptyDeckException {
         Card dealtCard = deck.deal();
-        List<Card> otherCards = new ArrayList<>();
-        for(int i = 0; i < deck.size(); i++) {
-            otherCards.add(deck.deal());
-        }
+        int deckSize = deck.size();
+        List<Card> otherCards = convertDeckToList(deck);
         assert(!otherCards.contains(dealtCard));
     }
 
@@ -65,9 +64,49 @@ public class DeckTest {
 
     @Test(expected = EmptyDeckException.class)
     public void dealingCardFromEmptyDeckThrowsException() throws EmptyDeckException {
-        for(int i = 0; i < 53; i++) {
+        int deckSize = deck.size();
+        for(int i = 0; i < deckSize + 1; i++) {
             deck.deal();
         }
     }
+
+    @Test
+    public void cardsStartOrdered() throws EmptyDeckException {
+        List<Card> cards = convertDeckToList(deck);
+        int cardsCloseTogether = measureCardCloseness(cards);
+        assertEquals(51,cardsCloseTogether);
+    }
+
+    @Test
+    public void shuffledCardsAreDisordered() throws EmptyDeckException {
+        deck.shuffle();
+        List<Card> cards = convertDeckToList(deck);
+        int cardsCloseTogether = measureCardCloseness(cards);
+        assert(cardsCloseTogether < 10);
+    }
+
+    private List<Card> convertDeckToList(Deck deck) throws EmptyDeckException {
+        int deckSize = deck.size();
+        List<Card> cards = new ArrayList<>();
+        for(int i = 0; i < deckSize; i++) {
+            cards.add(deck.deal());
+        }
+        return cards;
+    }
+
+    private int measureCardCloseness(List<Card> cards) {
+        int cardsCloseTogether = 0;
+        for(int i = 1; i < cards.size(); i++) {
+            if(nextToCloseCard(cards.get(i),cards.get(i-1))) {
+                cardsCloseTogether++;
+            }
+        }
+        return cardsCloseTogether;
+    }
+
+    private boolean nextToCloseCard(Card cardA, Card cardB) {
+        return Math.abs(cardA.getValue().ordinal() - cardB.getValue().ordinal()) < 2;
+    }
+
 
 }

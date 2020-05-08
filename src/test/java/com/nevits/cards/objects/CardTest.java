@@ -10,7 +10,7 @@ public class CardTest {
     @Test
     public void test_CanInstantiateACard() throws IllegalCardException {
         Card card = new Card(Value.JACK,Suit.SPADES);
-        assertEquals("Jack of \u2664", card.toString());
+        assertEquals("J\u2664", card.toString());
     }
 
     @Test(expected = IllegalCardException.class)
