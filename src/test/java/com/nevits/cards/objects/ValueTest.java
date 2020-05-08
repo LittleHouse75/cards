@@ -36,7 +36,7 @@ public class ValueTest {
     public void test_FIVE() {
         assertEquals("Five",FIVE.toString());
     }
-    
+
     @Test
     public void test_SIX() {
         assertEquals("Six",SIX.toString());
