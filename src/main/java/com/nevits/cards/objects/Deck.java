@@ -20,6 +20,22 @@ public class Deck {
         initialize52CardDeck();
     }
 
+    public void shuffle() {
+        Collections.shuffle(cards,RANDOM);
+    }
+
+    public int size() {
+        return cards.size();
+    }
+
+    public Card deal() throws EmptyDeckException {
+        if(cards.size()>0) {
+            return cards.remove(0);
+        } else {
+            throw new EmptyDeckException("Cannot be dealt from empty deck");
+        }
+    }
+
     private void initialize52CardDeck() {
         cards = new ArrayList<>();
         for (Value value : Value.values()) {
@@ -38,23 +54,7 @@ public class Deck {
     }
 
     private void handleException(IllegalCardException e) {
-        LOGGER.log(Level.SEVERE,"Unexpected error while generating deck",e);
-    }
-
-    public void shuffle() {
-        Collections.shuffle(cards,RANDOM);
-    }
-
-    public int size() {
-        return cards.size();
-    }
-
-    public Card deal() throws EmptyDeckException {
-        if(cards.size()>0) {
-            return cards.remove(0);
-        } else {
-            throw new EmptyDeckException("Cannot be dealt from empty deck");
-        }
+        LOGGER.log(Level.SEVERE,"Unexpected exception while generating deck",e);
     }
 
 }
