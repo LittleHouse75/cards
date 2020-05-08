@@ -3,7 +3,6 @@ package com.nevits.cards.objects;
 public enum Value {
 
     ACE("Ace"),
-    ONE("One"),
     TWO("Two"),
     THREE("Three"),
     FOUR("Four"),

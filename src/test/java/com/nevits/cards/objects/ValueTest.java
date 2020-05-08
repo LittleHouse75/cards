@@ -13,11 +13,6 @@ public class ValueTest {
     }
 
     @Test
-    public void test_ONE() {
-        assertEquals("One",ONE.toString());
-    }
-
-    @Test
     public void test_TWO() {
         assertEquals("Two",TWO.toString());
     }

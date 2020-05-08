@@ -2,6 +2,8 @@ package com.nevits.cards.objects;
 
 import com.nevits.cards.exceptions.IllegalCardException;
 
+import java.util.Objects;
+
 public class Card {
 
     private Value value;
@@ -15,10 +17,10 @@ public class Card {
 
     private void validateCardInputs(Value value, Suit suit) throws IllegalCardException {
         if(value == null) {
-            throw new IllegalCardException("Value cannot be null");
+            throw new IllegalCardException("Value cannot be null.");
         }
         if(suit == null) {
-            throw new IllegalCardException("Suit cannot be null");
+            throw new IllegalCardException("Suit cannot be null.");
         }
     }
 
@@ -34,4 +36,19 @@ public class Card {
     public String toString() {
         return value.toString() + " of " + suit.toUnicode();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return value == card.value &&
+                suit == card.suit;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, suit);
+    }
+
 }
