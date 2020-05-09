@@ -1,5 +1,8 @@
 package com.nevits.cards.objects;
 
+/**
+ * Enums representing the possible values of a playing card
+ */
 public enum Value {
 
     ACE("A"),
@@ -22,6 +25,9 @@ public enum Value {
         this.output = output;
     }
 
+    /**
+     * @return a one or two character string representing the value
+     */
     @Override
     public String toString() {
         return output;

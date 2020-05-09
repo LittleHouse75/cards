@@ -10,24 +10,42 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ *  A deck of cards
+ */
 public class Deck {
 
     private static final Logger LOGGER = Logger.getLogger(Deck.class.getName());
     private static final SecureRandom RANDOM = new SecureRandom();
     private List<Card> cards = new ArrayList<>();
 
+
+    /**
+     * Constructs a new, standard 52 card deck
+     */
     public Deck() {
         initialize52CardDeck();
     }
 
+    /**
+     * Arranges the cards within a deck in a random order
+     */
     public void shuffle() {
         Collections.shuffle(cards,RANDOM);
     }
 
+
+    /**
+     * @return Returns an int of the number of cards currently in the deck
+     */
     public int size() {
         return cards.size();
     }
 
+    /**
+     * @return the top card from the deck, decreasing the deck size by one
+     * @throws EmptyDeckException
+     */
     public Card deal() throws EmptyDeckException {
         if(cards.size()>0) {
             return cards.remove(0);

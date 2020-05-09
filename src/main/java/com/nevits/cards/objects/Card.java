@@ -9,6 +9,12 @@ public class Card {
     private Value value;
     private Suit suit;
 
+    /**
+     * Constructs a playing card from the value and suit provided.  Null values are not accepted.
+     * @param value
+     * @param suit
+     * @throws IllegalCardException
+     */
     public Card(Value value, Suit suit) throws IllegalCardException {
         validateCardInputs(value, suit);
         this.suit = suit;
@@ -24,14 +30,23 @@ public class Card {
         }
     }
 
+    /**
+     * @return the value of the card
+     */
     public Value getValue() {
         return value;
     }
 
+    /**
+     * @return the suite of the card
+     */
     public Suit getSuit() {
         return suit;
     }
 
+    /**
+     * @return a two to three character string indicating the value and suit of the playing card
+     */
     @Override
     public String toString() {
         return value.toString() + suit.toString();

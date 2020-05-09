@@ -3,6 +3,9 @@ package com.nevits.cards.objects;
 import static com.nevits.cards.objects.Color.BLACK;
 import static com.nevits.cards.objects.Color.RED;
 
+/**
+ * Enums representing the possible suits of a playing card
+ */
 public enum Suit {
 
     CLUBS("\u2667", BLACK),
@@ -18,11 +21,17 @@ public enum Suit {
         this.color = color;
     }
 
+    /**
+     * @return the unicode character representing the suit
+     */
     @Override
     public String toString() {
         return unicodeCharacter;
     }
 
+    /**
+     * @return the color of the suit
+     */
     public Color color() {
         return color;
     }
